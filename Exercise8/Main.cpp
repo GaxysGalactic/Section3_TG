@@ -10,9 +10,9 @@ bool hasNumber(int list[], int size, int number)
 	return false;
 }
 
-bool hasRepeats(int list[])
+bool hasRepeats(int list[], int size)
 {
-	for (int i = 1; i < 5; i++)
+	for (int i = 1; i < size; i++)
 	{
 		for (int j = 0; j < i; j++)
 		{
@@ -28,6 +28,7 @@ int main()
 
 
 	int lotteryNumbers[5];
+	int size = sizeof(lotteryNumbers) / sizeof(lotteryNumbers[0]);
 	std::srand(std::time(0));
 	do
 	{
@@ -35,7 +36,7 @@ int main()
 		{
 			lotteryNumbers[i] = std::rand() % 20;
 		}
-	} while (hasRepeats(lotteryNumbers));
+	} while (hasRepeats(lotteryNumbers, size));
 
 	int chosenNumbers[5];
 	int number = -1;
@@ -45,7 +46,7 @@ int main()
 		std::cout << "Please enter entry #" << i + 1 << " (1-20): ";
 		std::cin >> std::setw(1) >> number;
 
-		while (std::cin.good() == false || hasNumber(chosenNumbers, i, number))
+		while (std::cin.good() == false || (number < 1 || number > 20) || hasNumber(chosenNumbers, i, number))
 		{
 			std::cin.clear();
 			std::cin.ignore(INT_MAX, '\n');

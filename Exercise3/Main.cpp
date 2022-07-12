@@ -9,11 +9,9 @@ int main()
 		if (i % 10 == 0)
 		{
 			std::cout << i << " ";
+			continue;
 		}
-		else
-		{
-			sum += i;
-		}
+		sum += i;
 	}
 	std::cout << std::endl;
 	std::cout << "Sum of non-multiples: " << sum << std::endl;

@@ -3,22 +3,21 @@
 
 int main()
 {
-	int choice = -1;
+	int choice;
 	int numberOfAttempts = 0;
 
-	std::cout << "Please enter a number between 1-10: ";
-	std::cin >> std::setw(1) >> choice;
-	numberOfAttempts++;
-
-	while (choice < 1 || 10 < choice || std::cin.good() == false)
+	do 
 	{
+		std::cout << "Please enter a number between 1-10: ";
+		std::cin >> choice;
+		
 		std::cin.clear();
 		std::cin.ignore(INT_MAX, '\n');
 
-		std::cout << "Please enter a number between 1-10: ";
-		std::cin >> std::setw(1) >> choice;
 		numberOfAttempts++;
-	}
+
+
+	} while (choice < 1 || 10 < choice || !std::cin.good());
 
 	if (numberOfAttempts > 5)
 	{

@@ -3,11 +3,12 @@
 
 char getChoice()
 {
-	char choice = -1;
-	int currentAttempt = 1;
-	std::cin >> std::setw(1) >> choice;
+	char choice;
+	std::cin >> choice;
 
-	while (std::cin.good() == false || (choice != 'F' && choice != 'T'))
+	int currentAttempt = 1;
+
+	while (!std::cin.good() || (choice != 'F' && choice != 'T'))
 	{
 		std::cin.clear();
 		std::cin.ignore(INT_MAX, '\n');
@@ -26,7 +27,7 @@ char getChoice()
 		{
 			return 'E';
 		}
-		std::cin >> std::setw(1) >> choice;
+		std::cin >> choice;
 	}
 
 	std::cin.clear();
@@ -38,12 +39,12 @@ char getChoice()
 
 int main()
 {
-	char choice = 'E';
 	int numberCorrect = 0;
 
 	std::cout << "Final Exam - True or False. Please respond with T (True) or F (False)" << std::endl;
 
 	std::cout << "Q1: We are currently in the 20th Century." << std::endl;
+	char choice;
 	choice = getChoice();
 	if (choice == 'T')
 	{

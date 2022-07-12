@@ -7,14 +7,11 @@ int main()
 
 	int size;
 	for (size = 0; myString[size] != '\0'; size++);
-	size;
-
 	for (int i = 0; i < size; i++)
 	{
 		myReversedString[size - i - 1] = myString[i];
-		if (myString[i + 1] == '\0')
-			myReversedString[size] = '\0';
 	}
+	myReversedString[size] = '\0';
 
 	std::cout << "My string initialized with double quotes is: " << myString << std::endl;
 	std::cout << "My string reversed is: " << myReversedString << std::endl;
@@ -25,10 +22,9 @@ int main()
 	for (size = 0; myNewString[size] != '\0'; size++);
 	for (int i = 0; i < size; i++)
 	{
-		myNewReversedString[size - i - 1] = myNewString[i];
-		if (myNewString[i + 1] == '\0')
-			myNewReversedString[size] = '\0';
+		myNewReversedString[size - i - 1] = myNewString[i];			
 	}
+	myNewReversedString[size] = '\0';
 
 	std::cout << "My string initialized with single characters is: " << myNewString << std::endl;
 	std::cout << "My string reversed is: " << myNewReversedString << std::endl;
